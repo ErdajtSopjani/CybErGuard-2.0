@@ -10,22 +10,33 @@ import ipaddress
 import socket
 import hashlib
 
-ascii = """
+def print_colored_banner():
+
+    start_color = "\033[91;1m" 
+    end_color = "\033[91;1m"       
+    reset_color = "\033[0m"   
+
+    ascii = f"""
+    {start_color}
  ▄████▄▓██   ██▓ ▄▄▄▄   ▓█████  ██▀███    ▄████  █    ██  ▄▄▄       ██▀███  ▓█████▄     ██████╗     ██████╗
 ▒██▀ ▀█ ▒██  ██▒▓█████▄ ▓█   ▀ ▓██ ▒ ██▒ ██▒ ▀█▒ ██  ▓██▒▒████▄    ▓██ ▒ ██▒▒██▀ ██▌    ╚════██╗   ██╔═████╗
 ▒▓█    ▄ ▒██ ██░▒██▒ ▄██▒███   ▓██ ░▄█ ▒▒██░▄▄▄░▓██  ▒██░▒██  ▀█▄  ▓██ ░▄█ ▒░██   █▌     █████╔╝   ██║██╔██║
 ▒▓▓▄ ▄██▒░ ▐██▓░▒██░█▀  ▒▓█  ▄ ▒██▀▀█▄  ░▓█  ██▓▓▓█  ░██░░██▄▄▄▄██ ▒██▀▀█▄  ░▓█▄   ▌    ██╔═══╝    ████╔╝██║
 ▒ ▓███▀ ░░ ██▒▓░░▓█  ▀█▓░▒████▒░██▓ ▒██▒░▒▓███▀▒▒▒█████▓  ▓█   ▓██▒░██▓ ▒██▒░▒████▓     ███████╗██╗╚██████╔╝
 ░ ░▒ ▒  ░ ██▒▒▒ ░▒▓███▀▒░░ ▒░ ░░ ▒▓ ░▒▓░ ░▒   ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒▓  ▒     ╚══════╝╚═╝ ╚═════╝
-  ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░  ░   ░ ░░▒░ ░ ░   ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒
-░       ▒ ▒ ░░   ░    ░    ░     ░░   ░ ░ ░   ░  ░░░ ░ ░   ░   ▒     ░░   ░  ░ ░  ░ 
+    ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░  ░   ░ ░░▒░ ░ ░   ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒
+░       ▒ ▒ ░░   ░    ░    ░     ░░   ░ ░ ░   ░  ░░░ ░ ░   ░   ▒     ░░   ░  ░ ░  ░
 ░ ░     ░ ░      ░         ░  ░   ░           ░    ░           ░  ░   ░        ░
 ░       ░ ░           ░                                                      ░
 
- (o o)                                          (o o) 
+ (o o)                                          (o o)
 (  V  ) Made by Erdajt Sopjani and GuardianN06 (  V  )
 --m-m--------------------------------------------m-m--
-"""
+    {end_color}{reset_color}
+    """
+
+    print(ascii)
+print_colored_banner()
 
 print(f"\n\n\n{ascii}\n\n")
 
@@ -37,12 +48,12 @@ def is_valid_ip_address(ip):
         return False
 
 def call_nmap():
-    target = input("\n[+] What is the target ip address: \nCybErGuard =>")
-    ports = input("[+] Specify which ports to scan Example [1-1000]: \nCybErGuard =>")
+    target = input("\n[+] What is the target ip address: ")
+    ports = input("[+] Specify which ports to scan Example [1-1000]: ")
 
     while (is_valid_ip_address(target) == False):
         print("Invalid IP address")
-        target = input("[+] Which target do you want to scan: \nCybErGuard =>")
+        target = input("[+] Which target do you want to scan: ")
 
 
     nm = nmap.PortScanner()
@@ -117,10 +128,10 @@ def call_brute():
     def login_script():
 
         print(ascii)
-        target_url = input("[+] Enter the XMLRPC endpoint of the target \nCybErGuard => ")
-        username = input("[+] Enter the username for login attempts \nCybErGuard => ")
-        password_file = input("[+] Enter the wordlist file path \nCybErGuard => ")
-        num_threads = int(input("[+] Enter the number of threads to use (default: 5) \nCybErGuard => ") or 5)
+        target_url = input("[+] Enter the XMLRPC endpoint of the target: ")
+        username = input("[+] Enter the username for login attempts: ")
+        password_file = input("[+] Enter the wordlist file path: ")
+        num_threads = int(input("[+] Enter the number of threads to use (default: 5): ") or 5)
 
         if not target_url.endswith('xmlrpc.php'):
             if not target_url.endswith('/'):
@@ -235,7 +246,7 @@ def call_hash_crack():
     for thread in threads:
         thread.join()
 
-    print("[+] No valid authentication found.")
+    print("[+] No match found. Try a different wordlist.\n")
 
 
 def main_loop(): 
@@ -245,6 +256,7 @@ def main_loop():
 
         if user_input.lower() == "exit":
             print("[+] Exiting CybErGuard...")
+            sys.exit(0)
             break
 
         if user_input.lower() == "help":
