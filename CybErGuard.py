@@ -10,6 +10,9 @@ import ipaddress
 import socket
 import hashlib
 
+
+os.system('cls' if os.name == 'nt' else 'clear')
+
 def print_colored_banner():
 
     start_color = "\033[91;1m" 
@@ -18,27 +21,29 @@ def print_colored_banner():
 
     ascii = f"""
     {start_color}
- ▄████▄▓██   ██▓ ▄▄▄▄   ▓█████  ██▀███    ▄████  █    ██  ▄▄▄       ██▀███  ▓█████▄     ██████╗     ██████╗
-▒██▀ ▀█ ▒██  ██▒▓█████▄ ▓█   ▀ ▓██ ▒ ██▒ ██▒ ▀█▒ ██  ▓██▒▒████▄    ▓██ ▒ ██▒▒██▀ ██▌    ╚════██╗   ██╔═████╗
-▒▓█    ▄ ▒██ ██░▒██▒ ▄██▒███   ▓██ ░▄█ ▒▒██░▄▄▄░▓██  ▒██░▒██  ▀█▄  ▓██ ░▄█ ▒░██   █▌     █████╔╝   ██║██╔██║
-▒▓▓▄ ▄██▒░ ▐██▓░▒██░█▀  ▒▓█  ▄ ▒██▀▀█▄  ░▓█  ██▓▓▓█  ░██░░██▄▄▄▄██ ▒██▀▀█▄  ░▓█▄   ▌    ██╔═══╝    ████╔╝██║
-▒ ▓███▀ ░░ ██▒▓░░▓█  ▀█▓░▒████▒░██▓ ▒██▒░▒▓███▀▒▒▒█████▓  ▓█   ▓██▒░██▓ ▒██▒░▒████▓     ███████╗██╗╚██████╔╝
-░ ░▒ ▒  ░ ██▒▒▒ ░▒▓███▀▒░░ ▒░ ░░ ▒▓ ░▒▓░ ░▒   ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒▓  ▒     ╚══════╝╚═╝ ╚═════╝
-    ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░  ░   ░ ░░▒░ ░ ░   ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒
-░       ▒ ▒ ░░   ░    ░    ░     ░░   ░ ░ ░   ░  ░░░ ░ ░   ░   ▒     ░░   ░  ░ ░  ░
-░ ░     ░ ░      ░         ░  ░   ░           ░    ░           ░  ░   ░        ░
-░       ░ ░           ░                                                      ░
-
- (o o)                                          (o o)
-(  V  ) Made by Erdajt Sopjani and GuardianN06 (  V  )
---m-m--------------------------------------------m-m--
+  ▄████▄▓██   ██▓ ▄▄▄▄   ▓█████  ██▀███    ▄████  █    ██  ▄▄▄       ██▀███  ▓█████▄     ██████╗     ██████╗
+ ▒██▀ ▀█ ▒██  ██▒▓█████▄ ▓█   ▀ ▓██ ▒ ██▒ ██▒ ▀█▒ ██  ▓██▒▒████▄    ▓██ ▒ ██▒▒██▀ ██▌    ╚════██╗   ██╔═████╗
+ ▒▓█    ▄ ▒██ ██░▒██▒ ▄██▒███   ▓██ ░▄█ ▒▒██░▄▄▄░▓██  ▒██░▒██  ▀█▄  ▓██ ░▄█ ▒░██   █▌     █████╔╝   ██║██╔██║
+ ▒▓▓▄ ▄██▒░ ▐██▓░▒██░█▀  ▒▓█  ▄ ▒██▀▀█▄  ░▓█  ██▓▓▓█  ░██░░██▄▄▄▄██ ▒██▀▀█▄  ░▓█▄   ▌    ██╔═══╝    ████╔╝██║
+ ▒ ▓███▀ ░░ ██▒▓░░▓█  ▀█▓░▒████▒░██▓ ▒██▒░▒▓███▀▒▒▒█████▓  ▓█   ▓██▒░██▓ ▒██▒░▒████▓     ███████╗██╗╚██████╔╝
+ ░ ░▒ ▒  ░ ██▒▒▒ ░▒▓███▀▒░░ ▒░ ░░ ▒▓ ░▒▓░ ░▒   ▒ ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒▓  ▒     ╚══════╝╚═╝ ╚═════╝
+     ░  ▒  ▓██ ░▒░ ▒░▒   ░  ░ ░  ░  ░▒ ░ ▒░  ░   ░ ░░▒░ ░ ░   ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒
+ ░       ▒ ▒ ░░   ░    ░    ░     ░░   ░ ░ ░   ░  ░░░ ░ ░   ░   ▒     ░░   ░  ░ ░  ░
+ ░ ░     ░ ░      ░         ░  ░   ░           ░    ░           ░  ░   ░        ░
+ ░       ░ ░           ░                                                      ░
+ 
+  (o o)                                          (o o)
+ (  V  ) Made by Erdajt Sopjani and GuardianN06 (  V  )
+ --m-m--------------------------------------------m-m--
     {end_color}{reset_color}
     """
 
-    print(ascii)
+    print(f"{ascii}\n")
+
+available_commands = ["network", "help", "exit", "brute", "hash", "", "clear"]
+
 print_colored_banner()
 
-print(f"\n\n\n{ascii}\n\n")
 
 def is_valid_ip_address(ip):
     try:
@@ -48,8 +53,16 @@ def is_valid_ip_address(ip):
         return False
 
 def call_nmap():
-    target = input("\n[+] What is the target ip address: ")
-    ports = input("[+] Specify which ports to scan Example [1-1000]: ")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print_colored_banner()
+
+    try:
+        target = input("\n[+] What is the target ip address: ")
+        ports = input("[+] Specify which ports to scan Example [1-1000]: " or 1-1000)
+    except KeyboardInterrupt:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print_colored_banner()
+        main_loop()
 
     while (is_valid_ip_address(target) == False):
         print("Invalid IP address")
@@ -127,12 +140,24 @@ def call_brute():
 
     def login_script():
 
-        print(ascii)
-        target_url = input("[+] Enter the XMLRPC endpoint of the target: ")
-        username = input("[+] Enter the username for login attempts: ")
-        password_file = input("[+] Enter the wordlist file path: ")
-        num_threads = int(input("[+] Enter the number of threads to use (default: 5): ") or 5)
+        print_colored_banner()
+        try: 
+            target_url = input("[+] Enter the XMLRPC endpoint of the target: ")
+            username = input("[+] Enter the username for login attempts: ")
+            password_file = input("[+] Enter the wordlist file path: ")
+            num_threads = int(input("[+] Enter the number of threads to use (default: 5): ") or 5)
+        except KeyboardInterrupt:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print_colored_banner()
+            main_loop()
 
+        if target_url == "" or username == "" or password_file == "":
+            print("[+] No valid arguments passed")
+            target_url = input("[+] Enter the XMLRPC endpoint of the target: ")
+            username = input("[+] Enter the username for login attempts: ")
+            password_file = input("[+] Enter the wordlist file path: ")
+            num_threads = int(input("[+] Enter the number of threads to use (default: 5): ") or 5)
+  
         if not target_url.endswith('xmlrpc.php'):
             if not target_url.endswith('/'):
                 target_url += '/'
@@ -171,13 +196,19 @@ def call_hash_crack():
 
     available_hash_types = ["sha1", "md5", "sha224", "sha256"]
 
-    hash_type = input("[+] What hash type do you want to crack: ")
-    while hash_type not in available_hash_types:
-        print("[+] Invalid hash type!! Options: 'sha1', 'md5', 'sha224', 'sha256'")
+    try:
         hash_type = input("[+] What hash type do you want to crack: ")
+        while hash_type not in available_hash_types:
+            print("[+] Invalid hash type!! Options: 'sha1', 'md5', 'sha224', 'sha256'")
+            hash_type = input("[+] What hash type do you want to crack: ")
 
-    hashPass = input("[+] Enter the hashed password: ")
-    wordlist = input("[+] Enter the path to the wordlist you want to use (default: rockyou.txt): ")
+        hashPass = input("[+] Enter the hashed password: ")
+        wordlist = input("[+] Enter the path to the wordlist you want to use (default: rockyou.txt): ")
+
+    except KeyboardInterrupt:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print_colored_banner()
+        main_loop()
 
     if wordlist == "":
         wordlist = "rockyou.txt"
@@ -262,22 +293,33 @@ def main_loop():
         if user_input.lower() == "help":
             print("[+] Available commands:")
             print("\texit - Exit CybErGuard")
+            print("\tclear - Clear the screen")
             print("\thelp - Show this help")
-            print("\tbrute - Perform brute force attack using XmlBrute")
-            print("\tnetwork - Scan a network for open ports using nmap")
-            print("\thash - Crack a passowrd hash using a wordlist")
+            print("\tbrute - Perform brute attack on websites using XmlBrute")
+            print("\tnetwork - Scan a network for open ports and operating systems using nmap")
+            print("\thash - Crack a password hash using a wordlist")
+            print("\n\nPress Ctrl+C to exit any use\n\n")
 
         if user_input.lower() == "brute":
             call_brute()
-            print(ascii)
+            print_colored_banner()
 
-        if user_input.lower() == "nmap":
+        elif user_input.lower() == "network":
             call_nmap()
-            print(ascii)
+            print_colored_banner()
 
-        if user_input.lower() == "hash":
+        elif user_input.lower() == "hash":
             call_hash_crack()
-            print(ascii)
+            print_colored_banner()
+
+        elif user_input not in available_commands :
+            print(f"[+] Unknown command \"{user_input}\" try \"help\"")
+
+        elif user_input == "clear":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print_colored_banner()
+
+
 
 if __name__ == "__main__":
     main_loop()
