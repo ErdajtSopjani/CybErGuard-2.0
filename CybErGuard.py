@@ -144,7 +144,7 @@ def call_brute():
         try: 
             target_url = input("[+] Enter the XMLRPC endpoint of the target: ")
             username = input("[+] Enter the username for login attempts: ")
-            password_file = input("[+] Enter the wordlist file path: ")
+            password_file = input("[+] Enter the wordlist file path(default: rockyou.txt): ")
             num_threads = int(input("[+] Enter the number of threads to use (default: 5): ") or 5)
         except KeyboardInterrupt:
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -162,6 +162,9 @@ def call_brute():
             if not target_url.endswith('/'):
                 target_url += '/'
             target_url += 'xmlrpc.php'
+
+        if not os.path.isfile(password_file):
+            password_file = "rockyou.txt"
 
         def attempt_login(password):
             password = password.strip()
