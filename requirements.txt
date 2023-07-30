@@ -1,0 +1,5 @@
+argparse
+python-nmap
+requests
+urllib3
+pyzipper
